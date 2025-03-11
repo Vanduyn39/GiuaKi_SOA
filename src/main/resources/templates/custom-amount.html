@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn số tiền rút</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <script>
+        function setAmount(value) {
+            document.getElementById("amount").value = value;
+        }
+
+        function validateAmount() {
+            let amount = document.getElementById("amount").value;
+            if (amount < 50000 || amount % 50000 !== 0) {
+                alert("Số tiền phải là bội số của 50,000 VND!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h2>Chọn số tiền rút</h2>
+    <form action="/atm/custom-withdraw" method="post" onsubmit="return validateAmount()">
+        <div class="amount-buttons">
+            <button type="button" onclick="setAmount(50000)">50,000 VND</button>
+            <button type="button" onclick="setAmount(100000)">100,000 VND</button>
+            <button type="button" onclick="setAmount(200000)">200,000 VND</button>
+            <button type="button" onclick="setAmount(500000)">500,000 VND</button>
+            <button type="button" onclick="setAmount(1000000)">1,000,000 VND</button>
+            <button type="button" onclick="setAmount(2000000)">2,000,000 VND</button>
+        </div>
+        <input type="number" id="amount" name="amount" placeholder="Nhập số tiền khác" min="50000" step="50000">
+        <button type="submit">Xác nhận</button>
+    </form>
+    <button type="button" onclick="history.back()">Quay lại</button>
+</div>
+</body>
+</html>
