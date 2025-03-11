@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Services</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Dịch vụ ATM</h2>
+    <div class="button-group">
+        <button onclick="window.location.href='custom-amount.html'">Rút tiền</button>
+        <button onclick="window.location.href='/atm/deposit'">Nạp tiền</button>
+        <button onclick="window.location.href='/atm/balance'">Xem số dư</button>
+        <button onclick="window.location.href='/atm/history'">Lịch sử giao dịch</button>
+        <button onclick="logout()">Đăng xuất</button>
+    </div>
+</div>
+
+<script>
+    function logout() {
+        // Gửi yêu cầu đăng xuất (nếu cần)
+        fetch("/atm/logout", { method: "POST" })
+            .then(() => {
+                // Chuyển hướng đến trang đăng nhập
+                window.location.href = "login.html";
+            })
+            .catch(error => console.error("Lỗi đăng xuất:", error));
+    }
+</script>
+</body>
+</html>
