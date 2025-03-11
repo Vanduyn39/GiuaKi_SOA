@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GiuaKiSoaApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(GiuaKiSoaApplication.class, args);
 	}
 
